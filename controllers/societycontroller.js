@@ -50,6 +50,15 @@ class SocietyController{
             res.status(500).json({message:"wrong"});
         }
     }
+      static societyfind = async (req,res)=>{
+        try {
+            const result = await Society.findById(req.params.id)
+            res.send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default SocietyController
