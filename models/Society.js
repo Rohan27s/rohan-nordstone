@@ -11,6 +11,10 @@ import mongoose from "mongoose";
 // ContentHead: ""
 const SocietySchema = new mongoose.Schema(
     {
+        name: {
+            type: String,
+            required: true,
+        },
         category: {
             type: String,
             required: true,

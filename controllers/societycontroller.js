@@ -4,6 +4,7 @@ class SocietyController{
     static societyadd = async (req,res) =>{
         try{
             const { 
+                name,
                 category,
             description,
             President,
@@ -17,6 +18,7 @@ class SocietyController{
         } = req.body
 
         const newSociety = new Society({
+            name:name,
             category:category,
             cover:cover,
             description:description,
