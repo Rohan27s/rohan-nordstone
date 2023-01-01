@@ -52,7 +52,7 @@ class SocietyController{
     }
       static societyfind = async (req,res)=>{
         try {
-            const result = await Society.find(req.params.name)
+            const result = await Society.findById(req.params.id)
             res.send(result)
         }
         catch (error) {
