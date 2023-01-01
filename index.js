@@ -3,8 +3,9 @@ dotenv.config();
 import express from 'express';
 import connectDb from './utils/mongo.js';
 import society from './routes/society.js';
-
+import cors from 'cors';
 const app = express()
+app.use(cors())
 const port =  process.env.PORT || '5000' // push krne s pehle yeh thik krna h *
 const DATABASE_URL = process.env.DATABASE_URL || "";
 
