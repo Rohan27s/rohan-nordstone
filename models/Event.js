@@ -38,17 +38,11 @@ const EventSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        societies: {
-            type: [
-                {
-                    Name: {
-                        type: String,
-                    },
-                    Logo: {
-                        type: String,
-                    }
-                }
-            ],
+        Name: {
+            type: String,
+        },
+        Logo: {
+            type: String,
         },
         description: {
             type: String,
@@ -65,23 +59,20 @@ const EventSchema = new mongoose.Schema(
         registerLink: {
             type: String,
         },
-        questions: {
-            type: [
-                {
-                    question: {
-                        type: String,
-                    },
-                    answer: {
-                        type: String,
-                    },
-                    open: {
-                        type: Boolean,
-                    }
-                }
-            ],
+        question1: {
+            type: String,
+        },
+        answer1: {
+            type: String,
+        },
+        question2: {
+            type: String,
+        },
+        answer2: {
+            type: String,
         },
     },
-    { timestamps: true }
+{ timestamps: true }
 );
 
 export default mongoose.models.Event ||
