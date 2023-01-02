@@ -3,6 +3,8 @@ dotenv.config();
 import express from 'express';
 import connectDb from './utils/mongo.js';
 import society from './routes/society.js';
+import event from './routes/event.js';
+
 import cors from 'cors';
 const app = express()
 app.use(cors())
@@ -15,6 +17,7 @@ app.get("/",(req,res)=>{
     res.send("hey");
 });
 app.use("/api",society);
+app.use("/api",event);
 app.listen(port,()=>{
     console.log(`ser listening at http://localhost:${port}`)
 })
