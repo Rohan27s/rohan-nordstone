@@ -53,6 +53,9 @@ const EventSchema = new mongoose.Schema(
         venue: {
             type: String,
         },
+        time:{
+            type:String,
+        },
         img: {
             type: String,
         },

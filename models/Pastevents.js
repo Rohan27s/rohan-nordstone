@@ -19,6 +19,9 @@ const PastSchema = new mongoose.Schema(
         description: {
             type: String,
         },
+        time:{
+            type:String,
+        },
         date: {
             type: String,
         },
