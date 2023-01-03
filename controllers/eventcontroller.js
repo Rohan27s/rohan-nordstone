@@ -29,7 +29,7 @@ class EventController {
                 time: time,
                 img: img,
                 registerLink: registerLink,
-                questions1: question1,
+                question1: question1,
                 answer1: answer1,
                 question2: question2,
                 answer2: answer2
