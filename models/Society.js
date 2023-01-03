@@ -14,7 +14,7 @@ const SocietySchema = new mongoose.Schema(
         name: {
             type: String,
             required: true,
-            unique:true,
+            unique: true,
         },
         category: {
             type: String,
@@ -46,6 +46,14 @@ const SocietySchema = new mongoose.Schema(
             type: String,
         },
         ContentHead: {
+            type: String,
+        },
+        url1: {
+            type: String,
+        }
+        , url2: {
+            type: String,
+        }, url3: {
             type: String,
         },
     },

@@ -14,7 +14,10 @@ class SocietyController{
             EventsHead,
             DesignHead,
             PRandOutreachHead,
-            ContentHead
+            ContentHead,
+            url1,
+            url2,
+            url3
         } = req.body
 
         const newSociety = new Society({
@@ -28,7 +31,10 @@ class SocietyController{
             EventsHead:EventsHead,
             DesignHead:DesignHead,
             PRandOutreachHead:PRandOutreachHead,
-            ContentHead:ContentHead
+            ContentHead:ContentHead,
+            url1:url1,
+            url2:url2,
+            url3:url3
         })
         const result = await newSociety.save()
         res.status(201).send(result)
