@@ -13,8 +13,7 @@ class EventController {
                 time,
                 img,
                 registerLink,
-                question1, answer1,
-                question2, answer2
+                faq,
 
             } = req.body
 
@@ -28,10 +27,7 @@ class EventController {
                 time: time,
                 img: img,
                 registerLink: registerLink,
-                question1: question1,
-                answer1: answer1,
-                question2: question2,
-                answer2: answer2
+                faq:faq
             })
             const result = await newEvent.save()
             res.status(201).send({result})
@@ -62,6 +58,25 @@ class EventController {
             console.log(error)
         }
     }
+    static updateDocById = async (req, res) => {
+        try {
+            const result = await EventModel.findByIdAndUpdate(req.params.id, req.body)
+            res.send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+    static dltDocById = async (req, res) => {
+        try {
+            const result = await EventModel.findByIdAndDelete(req.params.id)
+            res.status(204).send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+    
 
 }
 export default EventController

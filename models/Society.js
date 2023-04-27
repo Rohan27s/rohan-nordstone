@@ -27,27 +27,15 @@ const SocietySchema = new mongoose.Schema(
         cover: {
             type: String,
         },
-        President: {
-            type: String,
-        },
-        VicePresident: {
-            type: String,
-        },
-        GeneralSecretary: {
-            type: String,
-        },
-        EventsHead: {
-            type: String,
-        },
-        DesignHead: {
-            type: String,
-        },
-        PRandOutreachHead: {
-            type: String,
-        },
-        ContentHead: {
-            type: String,
-        },
+        members:
+        [
+            { 
+                designame: { type: String } ,
+                desigholder: { type: String },
+                number: { type: String },
+                rank: { type: Number }
+            }
+        ],
         url1: {
             type: String,
         }

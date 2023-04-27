@@ -7,14 +7,8 @@ class SocietyController{
                 name,
                 category,
             description,
-            President,
-            VicePresident,
             cover,
-            GeneralSecretary,
-            EventsHead,
-            DesignHead,
-            PRandOutreachHead,
-            ContentHead,
+            members,
             url1,
             url2,
             url3
@@ -25,13 +19,7 @@ class SocietyController{
             category:category,
             cover:cover,
             description:description,
-            President:President,
-            VicePresident:VicePresident,
-            GeneralSecretary:GeneralSecretary,
-            EventsHead:EventsHead,
-            DesignHead:DesignHead,
-            PRandOutreachHead:PRandOutreachHead,
-            ContentHead:ContentHead,
+            members:members,
             url1:url1,
             url2:url2,
             url3:url3
@@ -60,6 +48,24 @@ class SocietyController{
         try {
             const result = await Society.findById(req.params.id)
             res.send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+    static updateDocById = async (req, res) => {
+        try {
+            const result = await Society.findByIdAndUpdate(req.params.id, req.body)
+            res.send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+    static dltDocById = async (req, res) => {
+        try {
+            const result = await Society.findByIdAndDelete(req.params.id)
+            res.status(204).send(result)
         }
         catch (error) {
             console.log(error)

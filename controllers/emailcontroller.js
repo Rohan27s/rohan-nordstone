@@ -30,7 +30,24 @@ class EmailController {
         }
     }
 
-   
+    static updateDocById = async (req, res) => {
+        try {
+            const result = await Email.findByIdAndUpdate(req.params.id, req.body)
+            res.send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+    static dltDocById = async (req, res) => {
+        try {
+            const result = await Email.findByIdAndDelete(req.params.id)
+            res.status(204).send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
 }
 export default EmailController

@@ -9,12 +9,13 @@ const PastSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        Name: {
-            type: String,
-        },
-        Logo: {
-            type: String,
-        },
+        societies:
+        [
+            { 
+                name: { type: String } ,
+                logo: { type: String }
+            }
+        ],
         description: {
             type: String,
         },
@@ -30,15 +31,13 @@ const PastSchema = new mongoose.Schema(
         img: {
             type: String,
         },
-        First: {
-            type: String,
-        },
-        Second: {
-            type: String,
-        },
-        Third: {
-            type: String,
-        },
+        winners:
+        [
+            { 
+                positionname: { type: String } ,
+                positionholder: { type: String }
+            }
+        ],
     },
     { timestamps: true }
 );

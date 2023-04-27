@@ -34,18 +34,13 @@ const EventSchema = new mongoose.Schema(
         registerLink: {
             type: String,
         },
-        question1: {
-            type: String,
-        },
-        answer1: {
-            type: String,
-        },
-        question2: {
-            type: String,
-        },
-        answer2: {
-            type: String,
-        },
+        faq:
+        [
+            { 
+                ques: { type: String } ,
+                ans: { type: String }
+            }
+        ],
     },
     { timestamps: true }
 );

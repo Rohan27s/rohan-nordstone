@@ -6,29 +6,25 @@ class PastEventController {
             const {
                 title,
                 content,
-                Name,
-                Logo,
+                societies,
                 description,
                 date,
                 venue,
                 time,
                 img,
-                First,
-                Second, Third
+                winners
             } = req.body
 
             const newEvent = new PastEvent({
                 title: title,
                 content: content,
-                Name: Name, Logo: Logo,
+                societies:societies,
                 description: description,
                 date: date,
                 venue: venue,
                 time: time,
                 img: img,
-                First: First,
-                Second: Second,
-                Third: Third
+                winners:winners
             })
             const result = await newEvent.save()
             res.status(201).send(result)
@@ -54,6 +50,24 @@ class PastEventController {
         try {
             const result = await PastEvent.findById(req.params.id)
             res.send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+    static updateDocById = async (req, res) => {
+        try {
+            const result = await PastEvent.findByIdAndUpdate(req.params.id, req.body)
+            res.send(result)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+    static dltDocById = async (req, res) => {
+        try {
+            const result = await PastEvent.findByIdAndDelete(req.params.id)
+            res.status(204).send(result)
         }
         catch (error) {
             console.log(error)
