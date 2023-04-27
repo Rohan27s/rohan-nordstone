@@ -1,4 +1,4 @@
-import Event from '../models/Event.js';
+import EventModel from '../models/Event.js';
 
 class EventController {
     static eventadd = async (req, res) => {
@@ -6,8 +6,7 @@ class EventController {
             const {
                 title,
                 content,
-                Name,
-                Logo,
+                societies,
                 description,
                 date,
                 venue,
@@ -19,10 +18,10 @@ class EventController {
 
             } = req.body
 
-            const newEvent = new Event({
+            const newEvent = new EventModel({
                 title: title,
                 content: content,
-                Name: Name, Logo: Logo,
+                societies: societies,
                 description: description,
                 date: date,
                 venue: venue,
@@ -35,7 +34,7 @@ class EventController {
                 answer2: answer2
             })
             const result = await newEvent.save()
-            res.status(201).send(result)
+            res.status(201).send({result})
         }
         catch (err) {
             console.log(err);
@@ -44,7 +43,7 @@ class EventController {
     }
     static allevent = async (req, res) => {
         try {
-            const result = await Event.find()
+            const result = await EventModel.find()
             res.send(result)
 
         }
@@ -56,7 +55,7 @@ class EventController {
 
     static eventfind = async (req, res) => {
         try {
-            const result = await Event.findById(req.params.id)
+            const result = await EventModel.findById(req.params.id)
             res.send(result)
         }
         catch (error) {

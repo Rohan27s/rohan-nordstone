@@ -4,18 +4,18 @@ const EventSchema = new mongoose.Schema(
     {
         title: {
             type: String,
-            required: true,
         },
         content: {
             type: String,
             required: true,
         },
-        Name: {
-            type: String,
-        },
-        Logo: {
-            type: String,
-        },
+        societies:
+        [
+            { 
+                name: { type: String } ,
+                logo: { type: String }
+            }
+        ],
         description: {
             type: String,
         },
@@ -25,8 +25,8 @@ const EventSchema = new mongoose.Schema(
         venue: {
             type: String,
         },
-        time:{
-            type:String,
+        time: {
+            type: String,
         },
         img: {
             type: String,
@@ -49,6 +49,7 @@ const EventSchema = new mongoose.Schema(
     },
     { timestamps: true }
 );
+mongoose.models = {}
+const EventModel = mongoose.model("Event", EventSchema);
 
-export default mongoose.models.Event ||
-    mongoose.model("Event", EventSchema);
+export default EventModel
