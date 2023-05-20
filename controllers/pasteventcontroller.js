@@ -12,7 +12,8 @@ class PastEventController {
                 venue,
                 time,
                 img,
-                winners
+                winners,
+                reportpdf
             } = req.body
 
             const newEvent = new PastEvent({
@@ -23,6 +24,7 @@ class PastEventController {
                 date: date,
                 venue: venue,
                 time: time,
+                reportpdf:reportpdf,
                 img: img,
                 winners:winners
             })

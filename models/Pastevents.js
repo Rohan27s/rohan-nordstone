@@ -16,6 +16,9 @@ const PastSchema = new mongoose.Schema(
                 logo: { type: String }
             }
         ],
+        reportpdf:{
+            type:String,
+        },
         description: {
             type: String,
         },
