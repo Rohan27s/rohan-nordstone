@@ -16,6 +16,12 @@ const PastSchema = new mongoose.Schema(
                 logo: { type: String }
             }
         ],
+        sliderImage:
+        [
+            { 
+                img: { type: String } ,
+            }
+        ],
         reportpdf:{
             type:String,
         },

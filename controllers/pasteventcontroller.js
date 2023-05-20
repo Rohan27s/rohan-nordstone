@@ -12,6 +12,7 @@ class PastEventController {
                 venue,
                 time,
                 img,
+                sliderImage,
                 winners,
                 reportpdf
             } = req.body
@@ -22,6 +23,7 @@ class PastEventController {
                 societies:societies,
                 description: description,
                 date: date,
+                sliderImage:sliderImage,
                 venue: venue,
                 time: time,
                 reportpdf:reportpdf,
