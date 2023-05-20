@@ -28,22 +28,28 @@ const SocietySchema = new mongoose.Schema(
             type: String,
         },
         members:
-        [
-            { 
-                designame: { type: String } ,
-                desigholder: { type: String },
-                number: { type: String },
-                rank: { type: Number }
-            }
-        ],
-        url1: {
+            [
+                {
+                    designame: { type: String },
+                    desigholder: { type: String },
+                    number: { type: String },
+                    rank: { type: Number },
+                    photoUrl:{type:String}
+                }
+            ],
+        Fblink: {
             type: String,
         }
-        , url2: {
+        , Linkedlink: {
             type: String,
-        }, url3: {
+        }, Twitlink: {
+            type: String,
+        }, Instalink: {
             type: String,
         },
+        Youlink: {
+            type: String,
+        }
     },
     { timestamps: true }
 );

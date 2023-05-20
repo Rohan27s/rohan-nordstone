@@ -9,9 +9,11 @@ class SocietyController{
             description,
             cover,
             members,
-            url1,
-            url2,
-            url3
+            Fblink,
+            Linkedlink,
+            Twitlink,
+            Instalink,
+            Youlink
         } = req.body
 
         const newSociety = new Society({
@@ -20,9 +22,11 @@ class SocietyController{
             cover:cover,
             description:description,
             members:members,
-            url1:url1,
-            url2:url2,
-            url3:url3
+            Fblink:Fblink,
+            Linkedlink:Linkedlink,
+            Twitlink:Twitlink,
+            Youlink:Youlink,
+            Instalink:Instalink,
         })
         const result = await newSociety.save()
         res.status(201).send(result)
