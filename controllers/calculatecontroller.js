@@ -24,4 +24,4 @@ class CalculateController {
         }
     }
 }
-export default EmailController
+export default CalculateController
