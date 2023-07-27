@@ -7,15 +7,22 @@ class CalculateController {
                 FirstNo, SecondNo, Operation
             } = req.body
             
-            if(Operation === 'addition'){
-                res.status(201).send(FirstNo + SecondNo);
+            let result;
+            switch (Operation) {
+                case "addition":
+                    result = FirstNo + SecondNo;
+                    break;
+                case "subtraction":
+                    result = FirstNo - SecondNo;
+                    break;
+                case "multiplication":
+                    result = FirstNo * SecondNo;
+                    break;
+                default:
+                    return res.status(400).json({ message: "Invalid input. Operation must be one of 'addition', 'subtraction', or 'multiplication'." });
             }
-            if(Operation === 'subtraction'){
-                res.status(201).send(FirstNo - SecondNo);
-            }
-            if(Operation === 'multiplication'){
-                res.status(201).send(FirstNo * SecondNo);
-            }
+
+            res.status(201).json({ result });
             
         }
         catch (err) {
