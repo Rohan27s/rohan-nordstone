@@ -1,30 +1,24 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
 import express from 'express';
-import connectDb from './utils/mongo.js';
-import society from './routes/society.js';
-import event from './routes/event.js';
-import email from './routes/email.js';
-import calculate from './routes/calculate.js'
-import pastevent from './routes/pastevent.js';
 import cors from 'cors';
-const app = express()
-app.use(cors())
-const port =  process.env.PORT || '5000' // push krne s pehle yeh thik krna h *
-const DATABASE_URL = process.env.DATABASE_URL || "";
+import calculate from './routes/calculate.js';
+import connectDb from './utils/firebase.js';
 
-connectDb(DATABASE_URL);
+const app = express();
+app.use(cors());
+
+const port = process.env.PORT || 5000;
+
+// Connect to Firebase Firestore
+connectDb();
+
 app.use(express.json());
-app.get("/",(req,res)=>{
-    res.send("hey");
+
+app.get('/', (req, res) => {
+  res.send("It's Working👌");
 });
-app.use("/api",society);
-app.use("/api",event);
-app.use("/api",pastevent);
-app.use("/api",email);
-app.use("/api",calculate);
 
+app.use('/api', calculate);
 
-app.listen(port,()=>{
-    console.log(`ser listening at http://localhost:${port}`)
-})
+app.listen(port, () => {
+  console.log(`Server listening at http://localhost:${port}`);
+});
